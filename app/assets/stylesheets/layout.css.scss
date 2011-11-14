@@ -1,0 +1,48 @@
+$background-color: #eee;
+$content-color: #fff;
+
+@mixin rounded-bottom {
+  $side: bottom;
+  $radius: 0 0 6px 6px;
+
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin bottom-shadow {
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+    box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+
+body, html {
+    background: $background-color;
+}
+
+body {
+    padding-top: 40px; /* To push the container down*/
+}
+
+.container > footer p {
+    text-align: center;
+}
+
+.content {
+    background: $content-color;
+    padding: 20px;
+    margin: 0 -20px; /* negative indent to maintain the grid */
+    @include rounded-bottom;
+    @include bottom-shadow;
+}
+
+.page-header{
+    background-color: #f5f5f5;
+    padding: 20px 20px 10px;
+    margin: -20px -20px 20px;
+}
+
+.modal .close.btn {
+    margin-top: 0;
+}

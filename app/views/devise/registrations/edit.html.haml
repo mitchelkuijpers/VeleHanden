@@ -1,0 +1,36 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true}) do |f|
+  = devise_error_messages!
+  .clearfix
+    = f.label t("labels.name")
+    .input
+      = f.text_field :name
+  .clearfix
+    = f.label t("labels.email")
+    .input
+      = f.email_field :email
+  .clearfix
+    = f.label t("labels.password")
+    .input
+      = f.password_field :password, 'data-placement' => 'right', rel: 'popover', title: t('users.hint.leave_blank'), class: 'twipsy-focus'
+  .clearfix
+    = f.label t("labels.password_confirmation")
+    .input
+      = f.password_field :password_confirmation
+  .clearfix
+    = f.label t("labels.current_password")
+    .input
+      = f.password_field :current_password, 'data-placement' => 'right', rel: 'twipsy', title: t('users.hint.current_password'), class: 'twipsy-focus'
+  .actions
+    = f.submit t('buttons.update'), class: 'btn primary'
+    #{link_to t('buttons.cancel_account'), '#', "data-controls-modal" => "delete-modal", class: 'btn danger small', id: 'delete-modal-trigger', 'data-backdrop' => 'true'}
+
+#delete-modal.modal.hide.fade
+  .modal-header
+    %a.close{href: '#'} x
+    %h3= t('users.modal.cancel_account_title')
+  .modal-body
+    %p
+      %span.label.important= t('labels.warning')
+      = t('users.modal.cancel_account.')
+  .modal-footer
+    #{link_to t('buttons.cancel_account'), registration_path(resource_name), :method => :delete, class: 'btn danger'}

@@ -1,0 +1,16 @@
+- flash.each do |name, msg|
+  - if name == :alert
+    %div.alert-message.warning{"data-alert" => ""}
+      %a.close{:href => "#"} ×
+      %p
+        = msg
+  - elsif name == :notice
+    .alert-message.success{"data-alert" => ""}
+      %a.close{:href => "#"} ×
+      %p
+        = msg
+  - else
+    .alert-message{"data-alert" => ""}
+      %a.close{:href => "#"} ×
+      %p
+        = msg

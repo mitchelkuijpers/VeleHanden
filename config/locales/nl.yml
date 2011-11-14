@@ -1,0 +1,50 @@
+nl:
+  labels:
+    name: 'Naam'
+    email: 'E-mail'
+    password: 'Wachtwoord'
+    password_confirmation: 'Wachtwoord bevestiging'
+    current_password: 'Huidig wachtwoord'
+    remember_me: 'Onthoud mij'
+    warning: 'Let op!'
+  buttons:
+    sign_up: 'Word lid!'
+    sign_in: 'Inloggen'
+    sign_out: 'Uitloggen'
+    cancel_account: 'Account verwijderen'
+    update: 'Wijzingen verwerken'
+    cancel: 'Annuleren'
+    reset_password_instructions: 'Stuur me instructies om mijn wachtwoord aan te passen'
+  navigation:
+    sign_up: 'Nog geen lid?'
+    sign_in: 'Inloggen'
+    sign_out: 'Uitloggen'
+    options: 'Opties'
+    forgot_password: 'Je wachtwoord vergeten?'
+    user-options: 'Account instellingen'
+  sentences:
+    logged_in_as: 'Ingelogd als: %{user}'
+  titles:
+    registrations:
+      new: 'Aanmelden'
+      edit: 'Account instellingen'
+    sessions:
+      new: 'Inloggen'
+    passwords:
+      new: 'Wachtwoord vergeten?'
+    users:
+      search: 'Zoeken'
+    home:
+      index: 'Index pagina'
+  users:
+    hint:
+      leave_blank: 'Laat dit veld leeg als u het niet wilt veranderen.'
+      current_password: 'We hebben u huidig wachtwoord nodig om de veranderingen te verifiëren.'
+    modal:
+      cancel_account: 'Deze actie kan niet ongedaan worden gemaakt.'
+      cancel_account_title: 'Weet u zeker dat u uw account wilt verwijderen.'
+  copyright: 'No copyright'
+  mongoid:
+    errors:
+      messages:
+        document_not_found: 'document niet gevonden'

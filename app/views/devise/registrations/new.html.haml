@@ -1,0 +1,21 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .clearfix
+    = f.label t 'labels.name'
+    .input
+      = f.text_field :name
+  .clearfix
+    = f.label t 'labels.email'
+    .input
+      = f.email_field :email
+  .clearfix
+    = f.label t 'labels.password'
+    .input
+      = f.password_field :password
+  .clearfix
+    = f.label t 'labels.password_confirmation'
+    .input
+      = f.password_field :password_confirmation
+  .actions
+    = f.submit t('buttons.sign_up'), class: "btn primary"
+    = render :partial => "devise/shared/links"

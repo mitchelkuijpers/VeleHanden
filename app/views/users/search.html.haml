@@ -1,0 +1,20 @@
+- unless @users.blank?
+  %span.label.notice We found #{pluralize(@users.length, 'user')}:
+  %table.bordered-table.zebra-striped
+    %thead
+      %tr
+        %th #
+        %th= t('labels.name')
+        %th= t('labels.email')
+    %tbody
+      - for user in @users
+        %tr
+          %td= link_to user.id, user_url(user)
+          %td= link_to user.name, user_url(user)
+          %td= link_to user.email, user_url(user)
+- else
+  %p.no-results
+    - unless @user_name.blank?
+      .message.alert-message Sorry, we didn't find anybody named #{@user_name}…
+    - else
+      .message.alert-message.error Please enter a name in the search field…

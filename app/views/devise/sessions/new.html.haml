@@ -1,0 +1,17 @@
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .clearfix
+    = f.label t 'labels.email'
+    .input
+      = f.email_field :email
+  .clearfix
+    = f.label t 'labels.password'
+    .input
+      = f.password_field :password
+  - if devise_mapping.rememberable?
+    .clearfix
+      = f.label t 'labels.remember_me'
+      .input
+        = f.check_box :remember_me
+  .actions
+    = f.submit t('buttons.sign_in'), {class: 'btn primary'}
+    = render :partial => "devise/shared/links"

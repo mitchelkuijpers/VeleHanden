@@ -1,5 +1,26 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  labels:
+    name: 'Name'
+    email: 'Email'
+    password: 'Password'
+    password_confirmation: 'Password confirmation'
+    remember_me: 'Remember me'
+  buttons:
+    sign_up: 'Make me a member!'
+    sign_in: 'Login'
+    sign_out: 'Logout'
+  navigation:
+    sign_up: 'Not a member yet?'
+    sign_in: 'Login'
+    sign_out: 'Logout'
+    options: 'Options'
+    forgot_password: 'Forgot your password?'
+  sentences:
+    logged_in_as: 'Logged in as: %{user}'
+  titles:
+    registrations:
+      new: 'Sign up'
+    sessions:
+      new: 'Sign in'
+  copyright: 'No copyright'
+

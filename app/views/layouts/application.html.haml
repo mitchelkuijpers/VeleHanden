@@ -2,10 +2,28 @@
 %html
   %head
     %title VeleHanden
-    = stylesheet_link_tag    "application"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    .topbar
+      .fill
+        .container
+          = link_to 'Vele Handen', '/', class: 'brand'
+          %ul.nav
+            %li
+              %a{href: '/'}
+                Home
+          .pull-right
+            %ul.nav
+              = render 'shared/user_navigation'
+            = render 'shared/user_search'
+    .container
+      .content
+        .page-header
+          %h1= I18n.t "titles.#{controller.controller_name}.#{controller.action_name}"
+        = render 'shared/flash_messages'
+        = yield
+      %footer
+        %p
+          = t('copyright')

@@ -27,6 +27,8 @@ gem 'jquery-rails'
 
 # Views
 gem "haml"
+# Maruku for markdown
+gem "maruku"
 
 # Mongoid
 gem "mongoid"
