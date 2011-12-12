@@ -1,0 +1,8 @@
+- content_for :title do
+  = @wiki.title
+.description= @wiki.description
+.actions
+  = link_to 'Aanpassen', edit_wiki_path(@wiki), class: 'btn primary'
+  = link_to 'Verwijderen', @wiki, method: :delete, class: 'btn danger'
+  = link_to 'Onderliggende paginas', wiki_pages_path(@wiki), class: 'btn'
+  = link_to 'Terug', :wikis, class: :btn

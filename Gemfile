@@ -26,13 +26,14 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Views
-gem "haml"
+gem 'haml'
+gem 'haml-rails'
 # Maruku for markdown
-gem "maruku"
+gem 'maruku'
 
 # Mongoid
-gem "mongoid"
-gem "bson_ext", "~> 1.4"
+gem 'mongoid'
+gem 'bson_ext', '~> 1.4'
 
 # Authentication and authorisation
 gem 'devise'

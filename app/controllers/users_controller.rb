@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def view
     @user = User.find params[:user_id]
 
@@ -11,7 +13,6 @@ class UsersController < ApplicationController
 
   def search
     @user_name = params[:user_name] ||= ''
-
     @users = User.search_by_name @user_name
 
     respond_to do |format|
@@ -19,5 +20,6 @@ class UsersController < ApplicationController
       format.json { render json: @users }
     end
   end
+
 
 end

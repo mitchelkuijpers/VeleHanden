@@ -1,0 +1,4 @@
+- content_for :title do
+  Wiki aanpassen
+  %small= @wiki.title
+= render partial: 'wikis/form', locals: {wiki: @wiki}

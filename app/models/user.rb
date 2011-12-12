@@ -2,10 +2,18 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  include Commentable
+
   field :name
-  validates_presence_of :name
+  validates_presence_of :name, :image
   validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :image, :image_uid
+
+  field :image_uid, type: String
+  image_accessor :image
+
+  #Relations
+  has_many :pages
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -13,7 +21,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  # status functions
+  # create static functions
   class << self
 
     # Search for users with a certain name. Uses regex for more advanced search.

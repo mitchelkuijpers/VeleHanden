@@ -1,0 +1,11 @@
+= form_for wiki, :builder => InlineValidationFormBuilder do |form|
+  .clearfix
+    =form.label :title, "Titel"
+    .input
+      =form.text_field :title
+  .clearfix
+    =form.label "Omschrijving"
+    .input
+      =form.text_field :description
+  .actions
+    =form.submit "Opslaan", class: "primary btn"

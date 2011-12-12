@@ -4,3 +4,5 @@
 
 $ ->
   $('.twipsy-focus').twipsy {trigger: 'focus'}
+  $('.twipsy-show').twipsy {trigger: 'manual'}
+  $('.twipsy-show').twipsy 'show'

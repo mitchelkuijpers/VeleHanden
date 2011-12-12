@@ -11,9 +11,7 @@
         .container
           = link_to 'Vele Handen', '/', class: 'brand'
           %ul.nav
-            %li
-              %a{href: '/'}
-                Home
+            = render 'shared/navigation'
           .pull-right
             %ul.nav
               = render 'shared/user_navigation'
@@ -21,7 +19,7 @@
     .container
       .content
         .page-header
-          %h1= I18n.t "titles.#{controller.controller_name}.#{controller.action_name}"
+          %h1= yield :title
         = render 'shared/flash_messages'
         = yield
       %footer

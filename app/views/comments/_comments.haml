@@ -1,0 +1,33 @@
+%ul.tabs{'data-tabs' => :tabs}
+  %li.active
+    %a{href: '#comments'} Reacties
+  %li
+    %a{href: '#comment_form'} Reactie plaatsen
+.comments-container.tab-content
+  #comments.tab-pane.active
+    .container
+      %h2 Reacties
+    %ul.comments
+      - commentable.comments.each do |comment|
+        %li.comment
+          .row
+            .span1
+              %ul.media-grid= render partial: 'users/user_thumbnail', locals: { user: comment.created_by}
+            .offset1
+              = link_to comment.created_by.name, comment.created_by
+              %p
+                = comment.message
+              %small.muted
+                #{time_ago_in_words comment.created_at} geleden
+
+  #comment_form.tab-pane
+    %h2 Plaats een reactie
+    = form_for :comment, url: create_comment_url do |form|
+      = hidden_field_tag :commentable_id, commentable.id
+      = hidden_field_tag :commentable_type, commentable.class.name
+      .clearfix
+        =form.label "Reactie"
+        .input
+          =form.text_area :message, rows: 3, class: :xxlarge
+      .actions
+        =form.submit "Voeg Reactie toe", class: "primary btn"

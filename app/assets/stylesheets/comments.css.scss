@@ -1,0 +1,22 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$margin: 6px;
+
+.comments-container {
+    clear:both;
+}
+
+.comments {
+    list-style: none;
+    margin: 0 0 $margin 0;
+    padding: 0;
+    clear: both;
+}
+
+.comment {
+  padding: $margin;
+  margin: 0 0 $margin 0;
+  border-bottom: 1px solid #dfdfdf
+}

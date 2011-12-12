@@ -719,20 +719,20 @@ input[type=file]:focus, input[type=checkbox]:focus, select:focus {
   box-shadow: none;
   outline: 1px dotted #666;
 }
-form .clearfix.error > label, form .clearfix.error .help-block, form .clearfix.error .help-inline {
+form .clearfix .field_with_errors > label, form .clearfix .field_with_errors .help-block, form .clearfix .field_with_errors .help-inline {
   color: #b94a48;
 }
-form .clearfix.error input, form .clearfix.error textarea {
+form .clearfix .field_with_errors input, form .clearfix .field_with_errors textarea {
   color: #b94a48;
   border-color: #ee5f5b;
 }
-form .clearfix.error input:focus, form .clearfix.error textarea:focus {
+form .clearfix .field_with_errors input:focus, form .clearfix .field_with_errors textarea:focus {
   border-color: #e9322d;
   -webkit-box-shadow: 0 0 6px #f8b9b7;
   -moz-box-shadow: 0 0 6px #f8b9b7;
   box-shadow: 0 0 6px #f8b9b7;
 }
-form .clearfix.error .input-prepend .add-on, form .clearfix.error .input-append .add-on {
+form .clearfix .field_with_errors .input-prepend .add-on, form .clearfix .field_with_errors .input-append .add-on {
   color: #b94a48;
   background-color: #fce6e6;
   border-color: #b94a48;

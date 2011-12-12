@@ -1,3 +1,5 @@
+- content_for :title do
+  =t('titles.sessions.new')
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   .clearfix
     = f.label t 'labels.email'

@@ -1,3 +1,6 @@
+- content_for :title do
+  =t('titles.registrations.edit')
+  %small= current_user.name
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true}) do |f|
   = devise_error_messages!
   .clearfix
@@ -19,12 +22,17 @@
   .clearfix
     = f.label t("labels.current_password")
     .input
-      = f.password_field :current_password, 'data-placement' => 'right', rel: 'twipsy', title: t('users.hint.current_password'), class: 'twipsy-focus'
+      = f.password_field :current_password, 'data-placement' => 'right', rel: 'twipsy', title: t('users.hint.current_password'), class: 'twipsy-show'
+  .clearfix
+    = f.label t('labels.user_image')
+    .input
+      = f.hidden_field :retained_image
+      = f.file_field :image
   .actions
     = f.submit t('buttons.update'), class: 'btn primary'
-    #{link_to t('buttons.cancel_account'), '#', "data-controls-modal" => "delete-modal", class: 'btn danger small', id: 'delete-modal-trigger', 'data-backdrop' => 'true'}
+    #{link_to t('buttons.cancel_account'), '#', "data-controls-modal" => "delete-account-modal", class: 'btn danger small', 'data-backdrop' => 'true'}
 
-#delete-modal.modal.hide.fade
+#delete-account-modal.modal.hide.fade
   .modal-header
     %a.close{href: '#'} x
     %h3= t('users.modal.cancel_account_title')

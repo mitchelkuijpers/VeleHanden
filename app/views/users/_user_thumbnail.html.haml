@@ -1,0 +1,7 @@
+- unless user.image.nil?
+  %li
+    %a
+      - if defined? x and defined? y
+        =image_tag user.image.thumb("#{x}x#{y}#").url, class: 'thumbnail'
+      - else
+        =image_tag user.image.thumb('40x40#').url, class: 'thumbnail'
