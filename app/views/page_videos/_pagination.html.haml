@@ -1,0 +1,34 @@
+.pagination
+  %ul
+    - unless pagination[:previous_link].nil?
+      %li.prev
+        - prev_params = params
+        - prev_params['page'] = pagination[:previous_link]
+        = link_to "Vorige", prev_params
+    - else
+      %li.prev.disabled
+        = link_to "Vorige", '#'
+
+    - pagination[:previous_links].each do |link|
+      %li
+        - prev_params = params
+        - prev_params['page'] = link
+        = link_to link, prev_params
+
+    %li.active
+      = link_to pagination[:current].to_s, params
+
+    - pagination[:next_links].each do |link|
+      %li
+        - next_params = params
+        - next_params['page'] = link
+        = link_to link, next_params
+
+    - unless pagination[:next_link].nil?
+      %li.next
+        - next_params = params
+        - next_params['page'] = pagination[:next_link]
+        = link_to "Volgende", next_params
+    - else
+      %li.next.disabled
+        = link_to "Volgende", '#'

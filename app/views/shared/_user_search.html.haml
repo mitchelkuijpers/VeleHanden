@@ -1,2 +1,7 @@
 = form_tag search_user_url, method: :get, class: "user-search" do
-  = text_field_tag :user_name, nil, { :class => "input-small", :placeholder => "Zoeken…"}
+  = text_field_tag :user_name, nil,
+  { :class => "input-header twipsy-focus",
+  :placeholder => "Waar zoekt u naar?",
+  'data-placement' => 'below',
+  rel: 'popover',
+  title: 'Druk op enter om te zoeken'}

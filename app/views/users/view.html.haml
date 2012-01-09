@@ -5,9 +5,5 @@
   = @user.name
   %small
     Gebruikersprofiel
-.row
-  .span6
-    %ul.media-grid= render partial: 'users/user_thumbnail', locals: { user: @user, x: 330, y: 230 }
-  .span10
-    = render partial: 'users/user_details', locals: { user: @user}
+= render partial: 'users/user_details', locals: { user: @user}
 = render partial: 'comments/comments', locals: {commentable: @user}

@@ -1,5 +1,16 @@
 class WikisController < ApplicationController
 
+  def overview
+    @pages = Page.all
+    @wikis = Wiki.all
+
+    respond_to do |format|
+      format.html {
+
+      }
+    end
+  end
+
   def index
     @wikis = Wiki.all
 

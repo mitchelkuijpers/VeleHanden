@@ -1,0 +1,18 @@
+- content_for :title do
+  Video toevoegen
+= form_tag :search_vimeo, method: :get, class: "vimeo-search" do
+  = text_field_tag :q, nil, { :class => "input-large"}
+  = submit_tag "zoeken", {class: :btn}
+- if @query.nil?
+  Voer een zoekopdracht in om de gewenste video te vinden.
+- else
+  %h2= "Resultaten voor zoekopdracht op: #{@query}"
+  #vimeo-search-results
+    %ul.media-grid
+      - @videos["video"].each do |video|
+        %li
+          %a.vimeo-preview{"data-controls-modal" => "video-details-modal", 'data-backdrop' => 'true', 'video-id' => video["id"]}
+            = image_tag video["thumbnails"]["thumbnail"][1]["_content"]
+  = render partial: 'page_videos/pagination', locals: {pagination: @pagination}
+  = render partial: 'page_videos/video_modal', locals: {page: @page}
+

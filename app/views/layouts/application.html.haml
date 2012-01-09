@@ -6,15 +6,14 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    .topbar
-      .fill
-        .container
-          = link_to 'Vele Handen', '/', class: 'brand'
+    .header
+      .container
+        = image_tag 'layout/twitter_top.png', class: 'header-social-media-images'
+        = image_tag 'layout/facebook_top.png', class: 'header-social-media-images'
+        = image_tag 'layout/logo.png', class: 'logo'
+        = render 'shared/navigation'
+        .pull-right
           %ul.nav
-            = render 'shared/navigation'
-          .pull-right
-            %ul.nav
-              = render 'shared/user_navigation'
             = render 'shared/user_search'
     .container
       .content

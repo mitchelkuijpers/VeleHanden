@@ -1,2 +1,26 @@
-%li
-  = link_to "Projecten", :wikis
+%ul.header-nav-left.header-nav
+  %li
+    = link_to '/' do
+      %span
+        Homepage
+      %small
+        Terug naar waar uw avontuur begon
+  %li
+    = link_to :wikis do
+      %span
+        De Verhalen
+      %small
+        Unieke en opmerkelijke verhalen uit onze historie
+%ul.header-nav-right.header-nav
+  %li
+    = link_to 'http://velehanden.nl/' do
+      %span
+        VeleHanden
+      %small
+        Het platform om onze historie te digitaliseren
+  %li
+    = link_to "contact" do
+      %span
+        Contact
+      %small
+        We staan klaar om uw vragen te beantwoorden

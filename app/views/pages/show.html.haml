@@ -1,2 +1,27 @@
 - content_for :title do
   = @page.title
+.row
+  .span12
+    .story
+      :markdown
+        #{@page.story}
+    .well
+      = link_to "Verhaal aanvullen en/of bewerken", edit_wiki_page_path(@page.wiki, @page), class: "btn primary"
+    %h1 Beeldmateriaal
+    %ul.media-grid
+      - @page.page_medias.each do |page_media|
+        %li
+          - if(page_media.class == PageVideo)
+            %a.vimeo-preview{"data-controls-modal" => "video-details-modal", 'data-backdrop' => 'true', 'video-id' => page_media.video_id}
+              = image_tag page_media.photo.thumb('200x200#').url, class: 'thumbnail'
+          - else
+            %a
+              = image_tag page_media.photo.thumb('200x200#').url, class: 'thumbnail'
+    .well
+      = link_to "Voeg een foto toe!", new_page_page_photo_path(@page.id), class: "btn primary"
+      = link_to "Voeg een video toe!", search_vimeo_path(@page.id), class: "btn primary"
+
+  .span4
+    = render partial: 'pages/sidebar'
+= render partial: 'page_videos/video_modal', locals: {page: nil}
+= render partial: 'comments/comments', locals: {commentable: @page}

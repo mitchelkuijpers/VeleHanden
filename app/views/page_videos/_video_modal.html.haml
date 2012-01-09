@@ -1,0 +1,14 @@
+#video-details-modal.modal.hide
+  .modal-header
+    %a.close{href: '#'} x
+    %h3
+      Bekijk video
+  .modal-body
+    %iframe{:id=> 'vimeo-preview', :webkitallowfullscreen => 'webkitallowfullscreen',
+      :frameborder => '0', :width => '540', :height => '304'}
+  .modal-footer
+    - if(page.nil? == false)
+      = form_tag({:controller => "page_videos", :action => "create", :page_id => page}, :method => "post", :class => "nifty_form") do
+        = hidden_field_tag 'page_video[video_id]'
+        = hidden_field_tag 'page_video[photo_url]'
+        = submit_tag "Toevoegen", {class: 'btn success'}

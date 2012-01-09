@@ -3,5 +3,9 @@
     =form.label :title, "Titel"
     .input
       =form.text_field :title
+  .clearfix
+    =form.label :title, "Verhaal"
+    .input
+      =form.text_area :story
   .actions
     =form.submit "Opslaan", class: "primary btn"

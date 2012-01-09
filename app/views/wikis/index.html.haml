@@ -1,5 +1,5 @@
 - content_for :title do
-  Wiki's
+  Verhalen
 - if @wikis.blank?
   .alert-message.warning
     Nog geen wiki's gevonden!
@@ -11,4 +11,4 @@
       %small.wiki-description= wiki.description
 
 .actions
-  =link_to "Nieuwe wiki toevoegen", new_wiki_path, class: 'btn success'
+  = link_to "Nieuw verhaal toevoegen", new_wiki_path, class: 'btn success'

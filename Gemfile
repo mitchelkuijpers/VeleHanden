@@ -47,6 +47,9 @@ gem 'dragonfly', '~>0.9.8'
 gem 'ZenTest'
 gem 'i18n'
 
+# Vimeo
+gem 'crack'
+gem 'vimeo'
 
 
 group :test, :cucumber do

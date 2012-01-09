@@ -1,13 +1,12 @@
 $background-color: #eee;
 $content-color: #fff;
 
-@mixin rounded-bottom {
-  $side: bottom;
-  $radius: 0 0 6px 6px;
+@mixin rounded($sides) {
+  $radius: $sides;
 
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
+  border-radius: $sides;
+  -moz-border-radius: $sides;
+  -webkit-border-radius: $sides;
 }
 
 @mixin bottom-shadow {
@@ -16,31 +15,43 @@ $content-color: #fff;
     box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
 
-
-body, html {
-    background: $background-color;
+@mixin shadow($sides, $color) {
+    -moz-box-shadow: $sides $color;
+    -webkit-box-shadow: $sides $color;
+    box-shadow: $sides $color;
 }
 
-body {
-    padding-top: 40px; /* To push the container down*/
+
+body, html {
+    background: url(layout/background_normal.png) repeat;
+    font-size: 16px;
+}
+
+.header {
+    background: url(layout/background_top.png) top left repeat-x;
+    height: 200px;
+}
+
+.header-social-media-images {
+    padding: 10px 3px;
+}
+
+.header .container {
+    position: relative;
+}
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 400px;
+}
+.input-header {
+    background: #DFD7D5;
+    margin: 10px 0;
+    font-size: 14px;
 }
 
 .container > footer p {
     text-align: center;
-}
-
-.content {
-    background: $content-color;
-    padding: 20px;
-    margin: 0 -20px; /* negative indent to maintain the grid */
-    @include rounded-bottom;
-    @include bottom-shadow;
-}
-
-.page-header{
-    background-color: #f5f5f5;
-    padding: 20px 20px 10px;
-    margin: -20px -20px 20px;
 }
 
 .modal .close.btn {
@@ -49,4 +60,90 @@ body {
 
 .page-header .breadcrumb {
     margin-bottom: 0;
+}
+
+.header-nav{
+    list-style: none;
+    margin: 0;
+    padding:0;
+    position: absolute;
+    top: 80px;
+}
+.header-nav li{
+    float:left;
+    width: 160px;
+    padding: 0 10px;
+    text-align: center;
+}
+.header-nav span{
+    color: #8A7C79;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.header-nav small{
+    color: #8A8582;
+    font-size: 14px;
+    display: block;
+    padding-top: 10px;
+}
+.header-nav a:hover {
+    text-decoration: none;
+}
+.header-nav-left{
+    left: 0;
+}
+
+.header-nav-right{
+    right: 0;
+}
+
+.sidebar {
+    width: 306px;
+    padding-bottom: 1px;
+}
+
+.sidebar-top {
+    height: 31px;
+    background: url('layout/background_sidebar_top.png') bottom left no-repeat;
+}
+
+.sidebar-middle {
+    background: url('layout/background_sidebar_middle.png') top left repeat-y;
+}
+
+.sidebar-bottom {
+    height: 45px;
+    background: url('layout/background_sidebar_bottom.png') top left no-repeat;
+}
+
+.wiki-overview {
+    padding: 0 10px;
+    display: block;
+}
+
+.wiki-overview li {
+    float:left;
+    width: 30%;
+    padding: 20px 2% 20px 0;
+}
+
+.wiki-overview-options {
+    background: #E6D8D6;
+    @include rounded(5px 5px 5px 5px);
+    height: 40px;
+}
+.wiki-overview-options li {
+    float:left;
+    height: 40px;
+    margin: 0 1px;
+    padding: 0 10px;
+    line-height: 40px;
+    border-right: 1px solid #D7CDCC;
+    @include shadow(1px 0 0 0, #EADFDD)
+}
+.wiki-overview-options li:hover, .wiki-overview-options li.active{
+    background: #D8CAC8;
+}
+.wiki-overview-options ul li:first-child.active, .wiki-overview-options ul li:first-child:hover {
+    @include rounded(5px 0px 0px 5px);
 }

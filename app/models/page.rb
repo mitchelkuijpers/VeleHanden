@@ -1,15 +1,18 @@
 class Page
   include Mongoid::Document
+  include Mongoid::Versioning
   include Mongoid::Timestamps
-
-  #Fields
-  field :title, type: String
 
   #Comments
   include Commentable
 
+  #Fields
+  field :title, type: String
+  field :story, type: String
+
+
   #Relations
-  has_many :page_contents
+  has_many :page_medias
   belongs_to :wiki
 
 end

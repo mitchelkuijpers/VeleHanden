@@ -1,24 +1,37 @@
 VeleHanden::Application.routes.draw do
 
-  match '/:locale' => 'home#index'
   root :to => 'home#index'
 
-  scope "(:locale)", :locale => /en|nl/ do
+  # Wiki
+  get "/wikis/overview" => "wikis#overview", as: :wiki_overview
+
+  # scope "(:locale)", :locale => /en|nl/ do
     resources :wikis do
       resources :pages
     end
 
+    resources :pages do
+      resources :page_photos, only: [:create, :new]
+      resources :page_videos, only: [:create, :new]
+    end
+
     # Comments
-    post "comments" => "comments#create",  as: :create_comment
-    delete "comments/:id" => "comments#destroy", as: :destroy_comment
-    get "comments/:id" => "comments#show", as: :comment
+    post "comments(.:format)" => "comments#create",  as: :create_comment
+
+    #Vimeo
+    get "pages/:page_id/vimeo/search(.:format)" => "page_videos#search_vimeo", as: :search_vimeo
+
+
+
+    # PageContents
+
 
     devise_for :users
 
     # Users
     get "users/search(.format)" => "users#search", as: :search_user
     get "users/:user_id(.:format)" => "users#view",     as: :user
-  end
+  # end
 
 
 

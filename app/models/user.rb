@@ -5,12 +5,9 @@ class User
   include Commentable
 
   field :name
-  validates_presence_of :name, :image
+  validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :image, :image_uid
-
-  field :image_uid, type: String
-  image_accessor :image
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   #Relations
   has_many :pages
