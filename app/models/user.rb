@@ -11,6 +11,7 @@ class User
 
   #Relations
   has_many :pages
+  has_many :page_likes
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

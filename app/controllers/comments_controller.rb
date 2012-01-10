@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   # Create a new comment on a commentable
   def create
     klass = Commentable.getInstance params[:commentable_type]

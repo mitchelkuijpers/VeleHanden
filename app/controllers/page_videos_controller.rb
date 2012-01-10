@@ -1,5 +1,7 @@
 class PageVideosController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def search_vimeo
     @page = params[:page_id]
     if(params[:q].nil?)

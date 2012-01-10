@@ -1,0 +1,8 @@
+#page_like_form {
+    display: inline;
+    margin: 0;
+}
+
+#page_likes:after {
+    content: ' +'
+}

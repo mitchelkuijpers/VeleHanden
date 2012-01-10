@@ -2,6 +2,8 @@
 # /wikis/:id/pages
 class PagesController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:index, :show]
+
   # /wikis/:id/pages
   def index
     @wiki = Wiki.find params[:wiki_id]

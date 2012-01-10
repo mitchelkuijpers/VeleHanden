@@ -22,9 +22,11 @@ $content-color: #fff;
 }
 
 
-body, html {
+body, html, .containt{
+    font-family: 'ProximaNovaRegular', Arial, sans-serif;
     background: url(layout/background_normal.png) repeat;
     font-size: 16px;
+    text-shadow: 0px 0px 3px #fff;
 }
 
 .header {
@@ -48,6 +50,7 @@ body, html {
     background: #DFD7D5;
     margin: 10px 0;
     font-size: 14px;
+    color: #8A7C79;
 }
 
 .container > footer p {
@@ -97,25 +100,6 @@ body, html {
     right: 0;
 }
 
-.sidebar {
-    width: 306px;
-    padding-bottom: 1px;
-}
-
-.sidebar-top {
-    height: 31px;
-    background: url('layout/background_sidebar_top.png') bottom left no-repeat;
-}
-
-.sidebar-middle {
-    background: url('layout/background_sidebar_middle.png') top left repeat-y;
-}
-
-.sidebar-bottom {
-    height: 45px;
-    background: url('layout/background_sidebar_bottom.png') top left no-repeat;
-}
-
 .wiki-overview {
     padding: 0 10px;
     display: block;
@@ -146,4 +130,7 @@ body, html {
 }
 .wiki-overview-options ul li:first-child.active, .wiki-overview-options ul li:first-child:hover {
     @include rounded(5px 0px 0px 5px);
+}
+#page_story {
+    width: 600px;
 }

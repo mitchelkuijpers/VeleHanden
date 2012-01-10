@@ -7,5 +7,15 @@
     =form.label :title, "Verhaal"
     .input
       =form.text_area :story
+  = form.hidden_field :retained_photo
+  - if(params[:action] != 'edit')
+    .clearfix
+      = form.label 'Afbeelding'
+      .input
+        = form.file_field :photo
+    .clearfix
+      =form.label :title, "Samenvatting"
+      .input
+        =form.text_area :summary
   .actions
     =form.submit "Opslaan", class: "primary btn"

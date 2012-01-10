@@ -1,0 +1,28 @@
+.sidebar {
+    width: 306px;
+    padding-bottom: 1px;
+}
+
+.sidebar-top {
+    height: 31px;
+    background: url('layout/background_sidebar_top.png') bottom left no-repeat;
+}
+
+.sidebar-middle {
+    background: url('layout/background_sidebar_middle.png') top left repeat-y;
+}
+
+.sidebar-bottom {
+    height: 45px;
+    background: url('layout/background_sidebar_bottom.png') top left no-repeat;
+}
+.sidebar-item {
+    clear:both;
+    padding: 0 20px 10px;
+}
+.sidebar-image{
+    float:right;
+    position: relative;
+    top: 10px;
+    right: 20px;
+}

@@ -18,5 +18,14 @@ $margin: 6px;
 .comment {
   padding: $margin;
   margin: 0 0 $margin 0;
-  border-bottom: 1px solid #dfdfdf
+  border-bottom: 1px solid #dfdfdf;
+  color: #785B56;
+}
+
+.modal form {
+    margin: 0;
+}
+.comments-title {
+    font-size: 34px;
+    margin-bottom: 21px;
 }

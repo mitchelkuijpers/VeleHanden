@@ -1,12 +1,14 @@
 - content_for :title do
   = @page.title
 .row
-  .span12
+  .span11
     .story
       :markdown
         #{@page.story}
     .well
-      = link_to "Verhaal aanvullen en/of bewerken", edit_wiki_page_path(@page.wiki, @page), class: "btn primary"
+      = render partial: 'page_likes/likes', locals: {page: @page}
+      .pull-right
+        = link_to "Verhaal aanvullen en/of bewerken", edit_wiki_page_path(@page.wiki, @page), class: "btn primary"
     %h1 Beeldmateriaal
     %ul.media-grid
       - @page.page_medias.each do |page_media|
@@ -21,7 +23,7 @@
       = link_to "Voeg een foto toe!", new_page_page_photo_path(@page.id), class: "btn primary"
       = link_to "Voeg een video toe!", search_vimeo_path(@page.id), class: "btn primary"
 
-  .span4
-    = render partial: 'pages/sidebar'
+  .span5
+    = render partial: 'pages/sidebar', locals: {page: @page}
 = render partial: 'page_videos/video_modal', locals: {page: nil}
 = render partial: 'comments/comments', locals: {commentable: @page}

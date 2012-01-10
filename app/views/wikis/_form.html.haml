@@ -6,6 +6,11 @@
   .clearfix
     =form.label "Omschrijving"
     .input
-      =form.text_field :description
+      =form.text_area :description
+  .clearfix
+    = form.label 'Afbeelding'
+    .input
+      = form.hidden_field :retained_photo
+      = form.file_field :photo
   .actions
     =form.submit "Opslaan", class: "primary btn"

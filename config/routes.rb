@@ -18,6 +18,9 @@ VeleHanden::Application.routes.draw do
     # Comments
     post "comments(.:format)" => "comments#create",  as: :create_comment
 
+
+    post "pages/likes/add(.:format)" => "page_likes#create",  as: :create_page_like
+
     #Vimeo
     get "pages/:page_id/vimeo/search(.:format)" => "page_videos#search_vimeo", as: :search_vimeo
 

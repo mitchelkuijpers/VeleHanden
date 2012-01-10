@@ -1,0 +1,5 @@
+= form_for :comment, url: create_page_like_path, remote: true,  html: {id: 'page_like_form'} do |form|
+  = hidden_field_tag :page_id, page.id
+  = button_tag "+ Goed verhaal", class: "success btn", id: 'page_like_button', 'data-loading-text' => 'Even geduld...', 'data-complete-text' => 'Uw stem is verwerkt!'
+  %a.btn.danger#page_likes
+    #{page.page_likes.count}

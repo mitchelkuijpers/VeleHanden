@@ -59,6 +59,10 @@ module VeleHanden
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    config.serve_static_assets = true
+
     # We don't wan't to log passwords!
     config.filter_parameters += [:password, :password_confirmation]
 

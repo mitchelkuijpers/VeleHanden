@@ -1,5 +1,7 @@
 class WikisController < ApplicationController
 
+  before_filter :authenticate_user!, except: [:overview, :index]
+
   def overview
     @pages = Page.all
     @wikis = Wiki.all

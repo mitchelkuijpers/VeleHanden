@@ -1,5 +1,38 @@
 .sidebar-top.sidebar
 .sidebar-middle.sidebar
-  %h1
-    Cornelis Lely
+  .sidebar-item
+    = image_tag page.photo.thumb('80x80#').url, class: 'sidebar-image'
+    %h3
+      #{page.title}
+    %p
+      :markdown
+        #{page.summary}
+  .sidebar-item
+    = image_tag page.wiki.photo.thumb('80x80#').url, class: 'sidebar-image'
+    %h3
+      Project
+    %p
+      #{page.wiki.title}
+    :markdown
+      #{page.wiki.description}
+    %a.btn.primary
+      Vind zelf ook bekende personen!
+  .sidebar-item
+    %h3
+      Geschreven door:
+  .sidebar-item
+    %h3
+      Tijdlijn
+    %a.btn.primary
+      Kunt u het aanvullen?
+  .sidebar-item
+    %h3
+      Deel het met anderen
+      .spread
+    .fshare.pull-right
+      %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
+      %fb:like{:layout => "button_count", :show_faces => "false", :width => "100", :href => 'http://www.velehanden.nl', :action => 'like'}
+    .twshare
+      %a.twitter-share-button.left{"data-count" => "horizontal", "data-url" => "http://www.veleverhalen.nl", "data-text" => "Help ook mee om het verhaal van #{page.title} compleet te maken #VeleHanden", :href => "http://twitter.com/share"} Tweet
+      %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
 .sidebar-bottom.sidebar

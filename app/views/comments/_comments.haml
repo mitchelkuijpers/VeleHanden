@@ -1,19 +1,30 @@
-%h2 Reacties
-%ul.comments
-  - commentable.comments.each do |comment|
-    %li.comment
-      = link_to comment.created_by.name, comment.created_by
-      %p
-        = comment.message
-      %small.muted
-        #{time_ago_in_words comment.created_at} geleden
-%h2 Plaats een reactie
-= form_for :comment, url: create_comment_url do |form|
-  = hidden_field_tag :commentable_id, commentable.id
-  = hidden_field_tag :commentable_type, commentable.class.name
-  .clearfix
-    =form.label "Reactie"
-    .input
+%h2.comments-title
+  Reacties
+  %small
+    #{pluralize(commentable.comments.count, 'reactie', 'reacties')} in totaal
+.row
+  .span11
+    %ul.comments
+      - commentable.comments.each do |comment|
+        %li.comment
+          %span.comment-created-by
+            = link_to comment.created_by.name, comment.created_by
+          %span.comment-time.pull-right
+            #{time_ago_in_words comment.created_at} geleden
+          %p.comment-message
+            = comment.message
+    %a.new-reaction.btn.primary.pull-right{"data-controls-modal" => "new-reaction-modal", 'data-backdrop' => 'true'}
+      Reageer!
+
+#new-reaction-modal.modal.hide
+  = form_for :comment, url: create_comment_url do |form|
+    .modal-header
+      %a.close{href: '#'} x
+      %h3
+        Plaats een reactie
+    .modal-body
       =form.text_area :message, rows: 3, class: :xxlarge
-  .actions
-    =form.submit "Voeg Reactie toe", class: "primary btn"
+    .modal-footer
+      = hidden_field_tag :commentable_id, commentable.id
+      = hidden_field_tag :commentable_type, commentable.class.name
+      =form.submit "Reageer!", class: "primary btn"

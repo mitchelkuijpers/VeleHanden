@@ -2,7 +2,7 @@
   Video toevoegen
 = form_tag :search_vimeo, method: :get, class: "vimeo-search" do
   = text_field_tag :q, nil, { :class => "input-large"}
-  = submit_tag "zoeken", {class: :btn}
+  = submit_tag "zoeken", {class: 'btn primary'}
 - if @query.nil?
   Voer een zoekopdracht in om de gewenste video te vinden.
 - else
