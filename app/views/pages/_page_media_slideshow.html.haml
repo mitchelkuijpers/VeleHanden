@@ -1,0 +1,29 @@
+- if (page_medias[0].class == Page)
+  .slider
+    - page_medias.each do |page_media|
+      .slide-element
+        .row
+          .span-5
+            %ul.media-grid
+              %li
+                = render :partial => 'pages/media_thumbnail', locals: {page_media: page_media}
+          .span11
+            %h3
+              =page_media.title
+            %p.two-text-columns
+              =excerpt(page_media.story, 'is', radius: 600);
+            = link_to 'Lees het hele verhaal', page_url(page_media), class: 'btn primary pull-right'
+-else
+  - if (page_medias.length > 4)
+    .slider
+      - PagesHelper.createArrayOfFour(page_medias).each do |page_medias|
+        .slide-element
+          %ul.media-grid
+            - page_medias.each do |page_media|
+              %li
+                = render :partial => 'pages/media_thumbnail', locals: {page_media: page_media}
+  - else
+    %ul.media-grid
+      - page_medias.each do |page_media|
+        %li
+          = render :partial => 'pages/media_thumbnail', locals: {page_media: page_media}

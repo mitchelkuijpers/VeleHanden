@@ -1,0 +1,9 @@
+- if(page_media.class == PageVideo)
+  %a.vimeo-preview{"data-controls-modal" => "video-details-modal", 'data-backdrop' => 'true', 'video-id' => page_media.video_id}
+    = image_tag page_media.photo.thumb('200x200#').url, class: 'thumbnail'
+- elsif (page_media.class == PagePhoto)
+  %a{"href" => page_media.photo.url}
+    = image_tag page_media.photo.thumb('200x200#').url, class: 'thumbnail'
+- elsif (page_media.class == Page)
+  %a{"href" => page_url(page_media)}
+    = image_tag page_media.photo.thumb('200x200#').url, class: 'thumbnail'

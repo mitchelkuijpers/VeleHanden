@@ -115,6 +115,7 @@ body, html, .containt{
     background: #E6D8D6;
     @include rounded(5px 5px 5px 5px);
     height: 40px;
+    margin-top: 20px;
 }
 .wiki-overview-options li {
     float:left;
@@ -133,4 +134,34 @@ body, html, .containt{
 }
 #page_story {
     width: 600px;
+}
+
+.span-one-third h3 {
+    color: #659595;
+    font-weight: bolder;
+    text-shadow: inset 0px -2px -2px #2C5859;
+}
+
+div.line {
+    margin: 15px 0;
+    border-bottom: 1px solid #DDD;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.two-text-columns {
+  -moz-column-width: 13em; -webkit-column-width: 13em; -moz-column-gap: 1em; -webkit-column-gap: 1em;;
+}
+
+.vimeo-preview {
+    cursor: pointer;
+}
+.velehanden_steps {
+    margin-top: -10px;
+}
+
+footer {
+    background: #3F3735 url(layout/background_footer_top.png) repeat-x top left;
+
 }

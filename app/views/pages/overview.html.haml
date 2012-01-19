@@ -1,0 +1,39 @@
+- content_for :title do
+  De Unieke historische verhalen
+.row
+  .span-one-third
+    %h3== Overzicht van de verhalen
+    %p== Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor orci, tristique quis bibendum eu, posuere nec nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec est in justo lacinia adipiscing. Quisque commodo enim a ligula suscipit pellentesque.
+  .span-one-third
+    %h3== Hoe ontstaan deze verhalen
+    %p== Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor orci, tristique quis bibendum eu, posuere nec nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec est in justo lacinia adipiscing. Quisque commodo enim a ligula suscipit pellentesque.
+    = link_to "Lees meer over VeleVerhalen", '/users/sign_up', class: 'btn success'
+  .span-one-third
+    %h3== Heeft u een verhaal?
+    %p== Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dolor orci, tristique quis bibendum eu, posuere nec nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec est in justo lacinia adipiscing. Quisque commodo enim a ligula suscipit pellentesque.
+    = link_to "Aanmelden als vrijwilliger!", '/users/sign_up', class: 'btn primary'
+.row
+  .wiki-overview-options.span16
+    %ul.categories.unstyled
+      %li
+        = link_to_unless_current "Alle Verhalen", pages_overview_path
+      %li
+        = link_to_unless_current "Projecten", wikis_path
+      %li
+        = link_to_unless_current "Beste Verhalen", pages_overview_best_path
+      %li
+        = link_to_unless_current "Kaart", "/"
+.row
+  .span16
+    %ul.unstyled.wiki-overview
+      - @pages.each do |page|
+        %li
+          = link_to page.title, page_path(page.id)
+          %small
+            :markdown
+              #{page.summary}
+.line
+.row
+  .span16
+    %h1 Uitgelichte verhalen
+    = render partial: 'pages/page_media_slideshow', locals: {page_medias: @best}

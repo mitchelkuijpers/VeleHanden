@@ -2,17 +2,6 @@ class WikisController < ApplicationController
 
   before_filter :authenticate_user!, except: [:overview, :index]
 
-  def overview
-    @pages = Page.all
-    @wikis = Wiki.all
-
-    respond_to do |format|
-      format.html {
-
-      }
-    end
-  end
-
   def index
     @wikis = Wiki.all
 

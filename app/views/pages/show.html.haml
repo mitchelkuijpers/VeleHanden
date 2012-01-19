@@ -9,21 +9,17 @@
       = render partial: 'page_likes/likes', locals: {page: @page}
       .pull-right
         = link_to "Verhaal aanvullen en/of bewerken", edit_wiki_page_path(@page.wiki, @page), class: "btn primary"
-    %h1 Beeldmateriaal
-    %ul.media-grid
-      - @page.page_medias.each do |page_media|
-        %li
-          - if(page_media.class == PageVideo)
-            %a.vimeo-preview{"data-controls-modal" => "video-details-modal", 'data-backdrop' => 'true', 'video-id' => page_media.video_id}
-              = image_tag page_media.photo.thumb('200x200#').url, class: 'thumbnail'
-          - else
-            %a
-              = image_tag page_media.photo.thumb('200x200#').url, class: 'thumbnail'
+  .span5
+    = render partial: 'pages/sidebar', locals: {page: @page}
+  .span16
+    %h1== Beeldmateriaal voor #{@page.title}
+    - if @page.page_medias.nil?
+      %div.alert-message.warning{"data-alert" => ""}
+        %p== Wees de eerste die een foto of video toevoegd voor #{@page.title}!
+    - else
+      = render partial: 'pages/page_media_slideshow', locals: {page_medias: @page.page_medias}
     .well
       = link_to "Voeg een foto toe!", new_page_page_photo_path(@page.id), class: "btn primary"
       = link_to "Voeg een video toe!", search_vimeo_path(@page.id), class: "btn primary"
-
-  .span5
-    = render partial: 'pages/sidebar', locals: {page: @page}
 = render partial: 'page_videos/video_modal', locals: {page: nil}
 = render partial: 'comments/comments', locals: {commentable: @page}

@@ -8,7 +8,6 @@ class PagesController < ApplicationController
   def index
     @wiki = Wiki.find params[:wiki_id]
     @pages = @wiki.pages
-
     respond_to do |format|
       format.html  # index.html.haml
       format.json  { render :json => @pages }
@@ -80,6 +79,24 @@ class PagesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(wiki_pages_path(params[:wiki_id]), notice: "Pagina succesvol verwijderd") }
       format.json { render json: {}, status: :ok}
+    end
+  end
+
+  def overview_best
+    @pages = Page.all.desc(:likes)
+    @wikis = Wiki.all
+    @best = @pages
+    respond_to do |format|
+      format.html{ render 'pages/overview'}
+    end
+  end
+
+  def overview
+    @pages = Page.all
+    @wikis = Wiki.all
+    @best = Page.all.desc(:likes)
+    respond_to do |format|
+      format.html
     end
   end
 

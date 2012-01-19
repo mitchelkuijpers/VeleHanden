@@ -1,3 +1,60 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input::-webkit-input-placeholder {
+    color: #A5A09D;
+}
+
+#login_button {
+    background: transparent;
+    width: 49px;
+    height: 99px;
+    display: block;
+    position: absolute;
+    top: -10px;
+    right: -80px;
+
+}
+
+.sign-up-container {
+    width: 609px;
+    height: 309px;
+    background: url(layout/background_form.png) top left no-repeat;
+
+    .sign-up-form {
+        padding: 20px;
+    }
+}
+.sign-up-field {
+    float:left;
+    width: 280px;
+    height: 80px;
+    text-align: left;
+
+    label {
+        margin: 0;
+        padding: 5px 0;
+        text-align: left;
+        width: auto;
+        display: block;
+        float: none;
+    }
+
+    input {
+        display: block;
+        background: #DFDAD7;
+        border: 1px solid #AFB5B3;
+        border-radius: 5px 5px 5px 5px;
+        padding: 10px 5px;
+        width: 260px;
+        color: #574F4F;
+    }
+
+
+}
+.sign-up-actions {
+    clear:both;
+    float: right;
+    margin: 10px 16px 0 0;
+}

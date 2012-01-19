@@ -1,0 +1,73 @@
+.row.home
+  .span8
+    %h1==Samen schrijven we VeleVerhalen
+    %p== Opmerkelijke vondsten worden hier uitgeschreven tot unieke verhalen. VeleVerhalen.nl is de enige community waar vrijwilligers samen schrijven aan historische verhalen. Schrijf mee en ontdek zelf hoe u mee kunt helpen om de geschiedenis levendig te maken en houden.
+    %a{ href: new_user_registration_path}
+      =image_tag 'layout/big_button.png'
+  .span8
+    .slider
+      - @best.each do |page|
+        .slide-element
+          .row
+            .span5
+              %h2= page.title
+            .span2
+              %ul.media-grid
+                %li
+                  %a{"href" => page_url(page)}
+                  = image_tag page.photo.thumb('100x80#n').url, class: 'thumbnail'
+          .row
+            .span7
+              %p
+                =excerpt(page.story, 'is', radius: 100);
+              = link_to 'Lees het hele verhaal', page_url(page), class: 'btn primary pull-right'
+- content_for :free do
+  .highlight.home
+    .container
+      .row
+        .span8
+          %h1
+            Velehanden
+            .br
+            %small maken licht werk
+            .line
+            %p Iedereen kan archieven online toegankelijk maken. Ervaring is niet nodig, wel passie voor het verleden. Helpt u mee de geschiedenis van alle Nederlanders op internet te zetten? Want vele handen maken licht werk.
+            %p Het eerste project op VeleHanden is het indexeren van de Militieregisters op naam, geboortedatum en geboorteplaats.
+            %p In deze militieregisters is de administratie van alle mannen die werden opgeroepen voor de dienstplicht bijgehouden. De bron is landelijk bewaard gebleven en is opgetekend in de periode van 1814 tot en met 1941. In de militieregisters zijn daarom veler voorouders terug te vinden.
+        .span8
+          %a{ href: new_user_registration_path}
+            = image_tag 'layout/img_tv.png', class: 'promo'
+          = link_to 'Aanmelden als vrijwilliger!', new_user_registration_path, class: 'btn primary large'
+          = link_to 'ik wil meer informatie', new_user_registration_path, class: 'btn success large'
+  .container.home
+    %h1 Projecten met unieke historische informatie uit de cultuur- en erfgoedsector
+    .line
+    .row
+      .span5
+        = image_tag 'layout/logo_project.png'
+      .span11
+        %h2 Militie registers
+        %p.two-text-columns
+          Op 3 November 2011 is Velehanden.nl officieel gestart. Op deze website kunnen vrijwilligers archiefdocumenten indexeren. Dit heeft als doel dat bestanden digitaal bewaard kunnen worden en dat zoeken naar bijvoorbeeld stamboomgegevens makkelijker wordt. Na onderzoek van studenten aan de Hogeschool Arnhem Nijmegen is geconstateerd dat de vrijwilligers het ontzettend leuk vinden om de zogenoemde pareltjes in de archiefdocumenten te vinden. Deze pareltjes, of te wel, bijzondere bijvindingen kunnen nu gedeeld worden op VeleVerhalen.nl. Hier kunnen zowel de vrijwilligers van VeleHanden als andere geïnteresseerden meerschrijven aan teksten over de bijzondere bevindingen die gedaan zijn tijdens het indexeren. Daarnaast is de community voor iedereen toegankelijk om deze bijzondere verhalen te lezen. Wilt u ook onderdeel zijn van deze unieke community en uw kennis delen? Dan kunt u zich gemakkelijk inschrijven en direct deelnemen door mee te schrijven aan verhalen en beeldmateriaal toe te voegen. Ontdek zelf hoe we de geschiedenis levendig kunnen maken en houden.
+        .pull-right
+          = link_to 'Aanmelden als vrijwilliger!', new_user_registration_path, class: 'btn primary large'
+          = link_to 'ik wil meer informatie', new_user_registration_path, class: 'btn success large'
+    .line
+    .row.home
+      .span8.center
+        %h1 Een indexatie project starten?
+        %p Bent u na het zien van VeleVerhalen en VeleHanden geinteresseerd geraakt, en wilt u uw eigen project laten indexere? We bieden verschillende (op maat) oplossingen aan om u bij het project the ondersteunen.
+        = link_to 'Neem contact met ons op voor meer informatie', '/', class: 'btn primary'
+      .span8.center
+        %h2
+          We hebben al indexeer projecten uitgevoerd voor:
+        .row
+          .span4.offset2
+            %ul
+              %li Stadsarchief Amsterdam
+              %li Militieregisters
+              %li Omroepgids Archief
+              %li Beeldarchief Hilversum
+              %li Archief lorum Ipsum
+
+

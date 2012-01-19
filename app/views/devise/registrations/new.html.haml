@@ -1,21 +1,60 @@
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .clearfix
-    = f.label t 'labels.name'
-    .input
-      = f.text_field :name
-  .clearfix
-    = f.label t 'labels.email'
-    .input
-      = f.email_field :email
-  .clearfix
-    = f.label t 'labels.password'
-    .input
-      = f.password_field :password
-  .clearfix
-    = f.label t 'labels.password_confirmation'
-    .input
-      = f.password_field :password_confirmation
-  .actions
-    = f.submit t('buttons.sign_up'), class: "btn primary"
-    = render :partial => "devise/shared/links"
+-content_for :title do
+  Maak uw account en schrijf mee!
+.row
+  .span5
+    %p Binnen enkele ogenblikken kunt u uw eigen account aanmaken en zelf meeschrijven aan één van de vele verhalen. Met dit account krijgt u niet alleen toegang tot VeleVerhalen, maar u kunt ook direct inloggen op www.velehanden.nl. Op VeleHanden kunt u gemakkelijk en snel meewerken om archiefstukken te indexeren. Vul hiernaast u gegevens in en u kunt direct starten.
+  .span11
+    .sign-up-container
+      .sign-up-form
+        %h2 Registreer uw account en doe mee
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .sign-up-field
+            = f.label 'Wat is uw naam?'
+            .sign-up-input
+              = f.text_field :name, placeholder: "Bijvoorbeeld: Henk Jansen"
+          .sign-up-field
+            = f.label 'Wat is uw e-maildres?'
+            .sign-up-input
+              = f.email_field :email, placeholder: "Bijvoorbeeld: h.jansen@provider.nl"
+          .sign-up-field
+            = f.label 'Wachtwoord voor uw account?'
+            .sign-up-input
+              = f.password_field :password, placeholder: "Minimaal 6 tekens waarvan 1 cijfer"
+          .sign-up-field
+            = f.label 'Herhaal het wachtwoord.'
+            .sign-up-input
+              = f.password_field :password_confirmation, placeholder: "Herhaal het wachtwoord"
+          .sign-up-actions
+            = render :partial => "devise/shared/links"
+            = f.submit 'Meld me aan!', class: "btn primary large"
+.row.center
+  .line
+  %h1 Drie eenvoudige stappen naar een historische wiki
+  .span-one-third
+    %h3 1 Indexeren
+    %p Indexeer samen met de honderden andere vrijwilligers archiefstukken van interessante projecten op VeleHanden.nl en help mee om archieven digitaal beschikbaar te maken.
+  .span-one-third
+    %h3 2 Schrijf een verhaal
+    %p Schrijf mee aan uw verhaal en aan de verhalen van anderen. Samen kennis delen met andere geïnteresseerde vrijwilligers zal leiden tot unieke historische verhalen.
+  .span-one-third
+    %h3 3 Voeg beeldmateriaal toe
+    %p Wanneer u interessant beeldmateriaal heeft gevonden zoals een afbeelding of filmpje heeft gevonden, kunt u dit gemakkelijk toevoegen aan het verhaal.
+.row.center
+  .span-one-third
+    =image_tag 'layout/img_empty.png'
+  .span-one-third
+    %a.vimeo-preview{"data-controls-modal" => "video-details-modal", 'data-backdrop' => 'true', 'video-id' => 34839021}
+      = image_tag 'layout/img_empty.png'
+  .span-one-third
+    %a.vimeo-preview{"data-controls-modal" => "video-details-modal", 'data-backdrop' => 'true', 'video-id' => 34838987}
+      = image_tag 'layout/img_empty.png'
+.row.center
+  = image_tag 'layout/stappen_stippellijn.png', class: 'velehanden_steps'
+.row.center
+  .line
+  %h1 Het verhaal achter VeleVerhalen
+  %p.two-text-columns Op 3 November 2011 is Velehanden.nl officieel gestart. Op deze website kunnen vrijwilligers archiefdocumenten indexeren. Dit heeft als doel dat bestanden digitaal bewaard kunnen worden en dat zoeken naar bijvoorbeeld stamboomgegevens makkelijker wordt. Na onderzoek van studenten aan de Hogeschool Arnhem Nijmegen is geconstateerd dat de vrijwilligers het ontzettend leuk vinden om de zogenoemde pareltjes in de archiefdocumenten te vinden. Deze pareltjes, of te wel, bijzondere bijvindingen kunnen nu gedeeld worden op VeleVerhalen.nl. Hier kunnen zowel de vrijwilligers van VeleHanden als andere geïnteresseerden meerschrijven aan teksten over de bijzondere bevindingen die gedaan zijn tijdens het indexeren. Daarnaast is de community voor iedereen toegankelijk om deze bijzondere verhalen te lezen. Wilt u ook onderdeel zijn van deze unieke community en uw kennis delen? Dan kunt u zich gemakkelijk inschrijven en direct deelnemen door mee te schrijven aan verhalen en beeldmateriaal toe te voegen. Ontdek zelf hoe we de geschiedenis levendig kunnen maken en houden.
+  %a.btn.primary.pull-right
+    Aanmelden als vrijwilliger
+= render partial: 'page_videos/video_modal', locals: {page: nil}

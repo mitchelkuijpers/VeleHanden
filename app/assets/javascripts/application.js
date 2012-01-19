@@ -6,4 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.slider.min
+//= require_directory ./bootstrap
 //= require_tree .

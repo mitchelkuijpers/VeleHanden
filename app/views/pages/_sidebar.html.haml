@@ -22,9 +22,18 @@
       Geschreven door:
   .sidebar-item
     %h3
-      Tijdlijn
-    %a.btn.primary
-      Kunt u het aanvullen?
+      .timeline
+        Tijdlijn
+        = image_tag 'layout/timeline_start.png', class: 'block'
+        - page.time_line_items.each do |happening|
+          .time-line-item
+            = image_tag 'layout/timeline_item.png'
+            %small.twipsy-hover{'data-placement' => 'right',rel: 'popover',title: happening.happening}
+              = truncate(happening.happening, length: 20)
+              = happening.happened_at
+        = image_tag 'layout/timeline_end.png', class: 'block'
+    = link_to 'Kunt u het aanvullen?', new_page_time_line_item_path(page), class: "btn primary"
+
   .sidebar-item
     %h3
       Deel het met anderen

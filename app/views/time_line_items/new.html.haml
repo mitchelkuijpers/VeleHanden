@@ -1,0 +1,14 @@
+- content_for :title do
+  Voeg een gebeurtenis toe aan het verhaal van #{@page.title}
+= form_for [@page, @time_line_item] do |form|
+  .clearfix
+    =form.label :happening, "Gebeurtenis"
+    .input
+      =form.text_field :happening
+  .clearfix
+    =form.label :date, "Datum"
+    .input
+      = form.date_select( :happened_at, {:order => [:day, :month, :year], :start_year => 1700})
+  .actions
+    =form.submit "Opslaan", class: "primary btn"
+    =link_to "Terug", page_path(@page), class: "success btn"
